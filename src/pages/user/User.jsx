@@ -1,3 +1,4 @@
+import { PermIdentity } from "@material-ui/icons"
 import "./user.css"
 
 export default function User() {
@@ -20,7 +21,11 @@ export default function User() {
                         <span className="userShowUserTitle">Daddies Girl</span>
                     </div>
                 </div> 
-                <div className="userShowBottom"></div>
+                <div className="userShowBottom">
+                    <span className="userShowTitle">Account Details</span>
+                    <PermIdentity className="userShowIcon" />
+                    <span className="userShowInfoTitle">belldell96</span>
+                </div>
             </div>    
             <div className="userUpdate"></div>
         </div>

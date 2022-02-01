@@ -56,3 +56,11 @@
     flex-direction: column;
     margin-left: 20px;
 }
+
+.userShowUsername{
+    font-weight: 600;
+}
+
+.userShowUserTitle{
+    font-weight: 300;
+}
