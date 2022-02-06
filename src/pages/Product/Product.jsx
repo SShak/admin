@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import "./product.css"
 import Chart from "../../components/chart/Chart"
 import {productData} from "../home/dummyData"
+import { Publish } from "@material-ui/icons"
 
 export default function Product() {
   return (
@@ -41,7 +42,34 @@ export default function Product() {
                 </div>
               </div>
             </div>
-            <div className="productBottom"></div>
+            <div className="productBottom">
+              <form action="" className="productForm">
+                <div className="productFormLeft">
+                  <label>Product Name</label>
+                  <input type="text" placeholder="Tako Dildo" />
+                  <label>In Stock</label>
+                  <select name="inStock" id="inStock">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                  <label>Active</label>
+                  <select name="active" id="active">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                </div>
+                <div className="productFormRight">
+                  <div className="productUpload">
+                    <img src="https://da6npmvqm28oa.cloudfront.net/42bdd5e2-4b4e-4f17-a87e-de1570774e60.jpg" alt="" className="productUploadImg" />
+                    <label for="file">
+                      <Publish/>
+                    </label>
+                    <input type="file" id="file" style={{display:"none"}} />
+                  </div>
+                  <button className="productButton">Update</button>
+                </div>
+              </form>
+            </div>
         </div>
   )
 }
