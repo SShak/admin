@@ -16,19 +16,20 @@ import NewUser from "./pages/newUser/newUser";
 function App() {
   return (
     <div>
+      <BrowserRouter>
       <Topbar/>
       <div className="container">
         <Sidebar />
-        <BrowserRouter>
+        
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
         <Route path="/newUser" element={<NewUser />} />
       </Routes>
-    </BrowserRouter>
+    
       </div>
-      
+      </BrowserRouter>
     </div>
   );
 }
