@@ -50,6 +50,27 @@ export const userData = [
 
   ];
 
+  export const productData = [
+    {
+      name: 'Jan',
+      "Sales": 4000,
+    },
+    {
+      name: 'Feb',
+      "Sales": 400,
+    },
+    {
+      name: 'Mar',
+      "Sales": 4500,
+    },
+    {
+      name: 'April',
+      "Sales": 7800,
+    },
+   
+
+  ];
+
   export const userRows = [
     { id: 1,
       username: "Bella Dell", 
@@ -86,4 +107,14 @@ export const userData = [
       status: "active",
       transaction: "$420.69"
     },     
+  ];
+
+  export const productRows = [
+    { id: 1,
+      name: "Bad Dragon", 
+      img: "https://da6npmvqm28oa.cloudfront.net/42bdd5e2-4b4e-4f17-a87e-de1570774e60.jpg",
+      stock: 69,
+      status: "active",
+      price: "$420.69"
+    },  
   ];
