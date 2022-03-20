@@ -1,6 +1,22 @@
+import { useEffect, useState } from "react";
+import { format } from "timeago.js";
+import { userRequest } from "../../requestMethods";
 import "./widgetLarge.css"
 
 export default function WidgetLarge() {
+
+  const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+      const getOrders= async () => {
+        try {
+          const res = await userRequest.get("orders");
+          setOrders(res.data);
+        } catch { }
+      };
+      getOrders();
+    }, []);
+
 
     const Button = ({type}) => {
       return <button className={"widgetLargeButton " + type}>{type}</button>
@@ -16,28 +32,18 @@ export default function WidgetLarge() {
             <th className="widgetLargeTh">Amount</th>
             <th className="widgetLargeTh">Status</th>
           </tr>
-          <tr className="widgetLargeTr">
+          {orders.map(order=>(
+          <tr className="widgetLargeTr" key={order._id}>
               <td className="widgetLargeUser">
-                <img src="https://img8.hotnessrater.com/6638647/belle-delphine-nude-selfie.jpg?w=4000&h=6000" alt="" className="widgetLargeImage" />
-                <span className="widgetLargeCustomer">Bella Del</span>
+                <span className="widgetLargeCustomer">{order.userId}</span>
               </td>
-              <td className="widgetLargeDate">Jan 29 2022</td>
-              <td className="widgetLargeAmount">$69,420</td>
+              <td className="widgetLargeDate">{format(order.createdAt)}</td>
+              <td className="widgetLargeAmount">${order.amount}</td>
               <td className="widgetLargeStatus">
-                <Button type="Approved" />
+                <Button type={order.status} />
               </td>
           </tr>
-          <tr className="widgetLargeTr">
-              <td className="widgetLargeUser">
-                <img src="https://media-exp1.licdn.com/dms/image/C4D03AQEkdDZQHrcElQ/profile-displayphoto-shrink_200_200/0/1560978132923?e=1648684800&v=beta&t=9zRW4O8Aw1LIDhpcdf2ldmgMP1_GUKkzeqNvdXlwfzI" alt="" className="widgetLargeImage" />
-                <span className="widgetLargeCustomer">Kyle Paradise</span>
-              </td>
-              <td className="widgetLargeDate">Jan 29 2022</td>
-              <td className="widgetLargeAmount">$2.50 </td>
-              <td className="widgetLargeStatus">
-                <Button type="Declined" />
-              </td>
-          </tr>
+          ))}
         </table>
     </div>
     )

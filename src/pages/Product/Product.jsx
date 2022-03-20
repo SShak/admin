@@ -1,10 +1,57 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import "./product.css"
 import Chart from "../../components/chart/Chart"
 import {productData} from "../home/dummyData"
 import { Publish } from "@material-ui/icons"
+import { useSelector } from "react-redux"
+import { useEffect, useMemo, useState } from "react"
+import { userRequest } from "../../requestMethods"
 
 export default function Product() {
+  const location = useLocation();
+  const productId = location.pathname.split("/")[2];
+  const [pStats,setPstats] = useState([])
+
+  const product = useSelector((state)=>state.product.products.find(product => product._id === productId))
+
+  const MONTHS = useMemo(
+    () => [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Agu",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    []
+  );
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const res = await userRequest.get("orders/income?pid=" + productId);
+        const list = res.data.sort((a,b)=>{
+            return a._id - b._id
+        })
+        list.map((item) =>
+          setPstats((prev) => [
+            ...prev,
+            { name: MONTHS[item._id - 1], Sales: item.total },
+          ])
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getStats();
+  }, [productId, MONTHS]);
+
   return (
         <div className='product'>
             <div className="productTitleContainer">
@@ -15,29 +62,25 @@ export default function Product() {
             </div>
             <div className="productTop">
               <div className="productTopLeft">
-                <Chart data={productData} dataKey="Sales" title="Sales Performance"/>
+                <Chart data={pStats} dataKey="Sales" title="Sales Performance"/>
               </div>
               <div className="productTopRight">
                 <div className="productInfoTop">
-                  <img src="https://da6npmvqm28oa.cloudfront.net/42bdd5e2-4b4e-4f17-a87e-de1570774e60.jpg" alt="" className="productInfoImg"/>
-                  <span className="productName">Tako Dildo</span>
+                  <img src={product.img} alt="" className="productInfoImg"/>
+                  <span className="productName">{product.title}</span>
                 </div>
                 <div className="productInfoBottom">
                   <div className="productInfoItem">
                     <span className="productInfoKey">id:</span>
-                    <span className="productInfoValue">420</span>
+                    <span className="productInfoValue">{product._id}</span>
                   </div>
                   <div className="productInfoItem">
                     <span className="productInfoKey">sales:</span>
                     <span className="productInfoValue">69,420</span>
                   </div>
                   <div className="productInfoItem">
-                    <span className="productInfoKey">active:</span>
-                    <span className="productInfoValue">yes</span>
-                  </div>
-                  <div className="productInfoItem">
                     <span className="productInfoKey">in stock:</span>
-                    <span className="productInfoValue">no</span>
+                    <span className="productInfoValue">{product.inStock}</span>
                   </div>
                 </div>
               </div>
@@ -46,21 +89,20 @@ export default function Product() {
               <form action="" className="productForm">
                 <div className="productFormLeft">
                   <label>Product Name</label>
-                  <input type="text" placeholder="Tako Dildo" />
+                  <input type="text" placeholder={product.title} />
+                  <label>Product Description</label>
+                  <input type="text" placeholder={product.desc} />
+                  <label>Price</label>
+                  <input type="text" placeholder={product.price} />
                   <label>In Stock</label>
                   <select name="inStock" id="inStock">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                  <label>Active</label>
-                  <select name="active" id="active">
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
                   </select>
                 </div>
                 <div className="productFormRight">
                   <div className="productUpload">
-                    <img src="https://da6npmvqm28oa.cloudfront.net/42bdd5e2-4b4e-4f17-a87e-de1570774e60.jpg" alt="" className="productUploadImg" />
+                    <img src={product.img} alt="" className="productUploadImg" />
                     <label for="file">
                       <Publish/>
                     </label>

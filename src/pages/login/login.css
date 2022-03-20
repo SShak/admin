@@ -1,0 +1,22 @@
+.login{
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.username{
+    padding: 10px;
+    margin-bottom: 20;
+}
+
+.password{
+    padding: 10px;
+    margin-bottom: 20;
+}
+
+.button{
+    padding: 10px;
+    width: 100px;
+}
