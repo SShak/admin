@@ -74,47 +74,39 @@ export const userData = [
   export const userRows = [
     { id: 1,
       username: "Bella Dell", 
-      avatar: "https://www.ladbible.com/cdn-cgi/image/width=648,quality=70,format=jpeg,fit=pad,dpr=1/https%3A%2F%2Fs3-images.ladbible.com%2Fs3%2Fcontent%2F03d3c2325d1b5bb3dc225dcc0dc4f558.png",
+      avatar: "",
       email: "hurtmedaddy@gmail.com",
       status: "active",
       transaction: "$420.69"
     },  
     { id: 2,
       username: "Bella Dell", 
-      avatar: "https://img8.hotnessrater.com/6638647/belle-delphine-nude-selfie.jpg?w=4000&h=6000}",
+      avatar: "",
       email: "hurtmedaddy@gmail.com",
       status: "active",
       transaction: "$420.69"
     }, 
     { id: 3,
       username: "Bella Dell", 
-      avatar: "https://img8.hotnessrater.com/6638647/belle-delphine-nude-selfie.jpg?w=4000&h=6000}",
+      avatar: "",
       email: "hurtmedaddy@gmail.com",
       status: "active",
       transaction: "$420.69"
     }, 
     { id: 4,
       username: "Bella Dell", 
-      avatar: "https://img8.hotnessrater.com/6638647/belle-delphine-nude-selfie.jpg?w=4000&h=6000}",
+      avatar: "",
       email: "hurtmedaddy@gmail.com",
       status: "active",
       transaction: "$420.69"
     },
     { id: 5,
       username: "Bella Dell", 
-      avatar: "https://img8.hotnessrater.com/6638647/belle-delphine-nude-selfie.jpg?w=4000&h=6000}",
+      avatar: "",
       email: "hurtmedaddy@gmail.com",
       status: "active",
       transaction: "$420.69"
     },     
   ];
 
-  export const productRows = [
-    { id: 1,
-      name: "Bad Dragon", 
-      img: "https://da6npmvqm28oa.cloudfront.net/42bdd5e2-4b4e-4f17-a87e-de1570774e60.jpg",
-      stock: 69,
-      status: "active",
-      price: "$420.69"
-    },  
-  ];
+  

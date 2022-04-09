@@ -62,6 +62,12 @@ export default function ProductList() {
                 );
               }
             },
+            {
+              field:               <Link to="/newproduct">
+              <button className="productAddButton">Create</button>
+            </Link>,
+            width: 250,
+            },
           ];
 
     return( 
