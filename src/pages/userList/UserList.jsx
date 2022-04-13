@@ -17,6 +17,9 @@ export default function UserList() {
     getUsers(dispatch);
   },[dispatch]);
 
+  const handleDelete = (id)=>{
+    deleteUser(id,dispatch);
+};
 
 
 const columns = [
@@ -33,6 +36,26 @@ const columns = [
           {params.row.username}
         </div>
       )
+    }
+  },
+  {
+    field: 'email',
+    headerName: 'Email',
+    width: 200
+  },
+  {
+    field: 'edit',
+    headerName: 'Edit',
+    width: 150,
+    renderCell: (params) =>{
+      return (
+        <>
+          <Link to={"/user/"+params.row._id}>
+            <button className="userListEdit">Edit</button>
+          </Link>
+          <DeleteOutline className="userListDelete" onClick={()=>handleDelete(params.row._id)} />
+        </> 
+      );
     }
   },
 
