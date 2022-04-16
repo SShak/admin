@@ -71,42 +71,6 @@ export const userData = [
 
   ];
 
-  export const userRows = [
-    { id: 1,
-      username: "Bella Dell", 
-      avatar: "",
-      email: "hurtmedaddy@gmail.com",
-      status: "active",
-      transaction: "$420.69"
-    },  
-    { id: 2,
-      username: "Bella Dell", 
-      avatar: "",
-      email: "hurtmedaddy@gmail.com",
-      status: "active",
-      transaction: "$420.69"
-    }, 
-    { id: 3,
-      username: "Bella Dell", 
-      avatar: "",
-      email: "hurtmedaddy@gmail.com",
-      status: "active",
-      transaction: "$420.69"
-    }, 
-    { id: 4,
-      username: "Bella Dell", 
-      avatar: "",
-      email: "hurtmedaddy@gmail.com",
-      status: "active",
-      transaction: "$420.69"
-    },
-    { id: 5,
-      username: "Bella Dell", 
-      avatar: "",
-      email: "hurtmedaddy@gmail.com",
-      status: "active",
-      transaction: "$420.69"
-    },     
-  ];
+
 
   
